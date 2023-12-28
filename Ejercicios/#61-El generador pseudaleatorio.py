@@ -16,5 +16,3 @@ def generador ():
 
 input ("pulsa [intro] cuando quieras generar un numero aleatorio: ")
 generador()
-
-
