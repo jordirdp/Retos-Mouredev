@@ -13,15 +13,32 @@ MODIFICADO A PIEDRA, PAPEL, TIJERA TRADICIONAL
 
 from random import *
 
+def inicio(nom):
+    try:
+        numero = int(input ("\nHola "+nom+ ". ¿A cuántas rondas quieres jugar?: "))
+    except ValueError:
+        print ("Eso no es un número, vuelve a intentarlo.")
+        inicio(nom)
+    print ("Cada vez que pulses 1 🗿, 2 📄 o 3 ✂️  , estás eligiendo tu tirada")
+    tirada(numero)
+
 def tirada(repeticiones):
     player = computer = 0
     for jugadas in range(repeticiones):
-        opcion = int(input ("¿Qué eliges? (1, 2 o 3):  "))
+        try:
+            opcion = int(input ("¿Qué eliges? (1, 2 o 3):  "))
+        except ValueError:
+            print ("Tiene que ser un número entre 1 y 3")
+            continue
+
         diccionario = {1:"🗿", 2:"📄", 3:"✂️"}
         pc = randint(1,3)
 
         if opcion == pc:
             solucion = "empate"
+        elif opcion > 3:
+            solucion = "PIERDES POR NO SABER CONTAR HASTA 3"
+            computer += 1
         elif opcion == 1 and pc == 2:
             solucion = "YO GANO"
             computer += 1
@@ -39,11 +56,9 @@ def tirada(repeticiones):
     jugadas += 1
 
     print ("\nRESULTADO: ", nombre, "= ", player, "  ||  Computer = ", computer)
-
+    exit()
 
 
 print ("\n*** BIENVENIDO AL JUEGO PIEDRA 🗿, PAPEL 📄 O TIJERA ✂️  ***\n")
 nombre = input("Introduce tu nombre: ")
-numero = int(input ("\nHola "+nombre+ ". ¿A cuántas rondas quieres jugar?: "))
-print ("Cada vez que pulses 1 🗿, 2 📄 o 3 ✂️  , estás eligiendo tu tirada")
-tirada(numero)
+inicio(nombre)
