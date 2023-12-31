@@ -35,15 +35,7 @@ def tecla_pulsada(key):
         key_position = 0
 
     if key_position == 10:
-        print ("bien")
-    
-
-
-    
-
-
-        
+        print ("***** PREMIO *****")
 
 print ("\nIntroduce tu código secreto : ")
-
 keyboard.Listener(tecla_pulsada).run()
