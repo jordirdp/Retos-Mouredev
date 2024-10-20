@@ -2,6 +2,10 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"name": "Axion",
+			"path": "../../PlatformIO/Projects/Axion"
 		}
 	],
 	"settings": {}
